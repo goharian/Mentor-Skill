@@ -1,16 +1,26 @@
 # Mentor Skill — Claude Code
 
-A Claude Code skill that turns Claude into a senior software engineering mentor. Instead of writing code for you, it guides you to understand and solve problems independently.
+A Claude Code skill that turns Claude into a senior software engineering mentor operating directly inside your IDE. Instead of writing code for you, it reads your actual code and guides you to understand and solve problems independently.
 
 ## What It Does
 
 When invoked, Claude adopts the role of a senior mentor who:
 
-- **Never writes code** — not a single line, not pseudo-code
-- **Infers your experience level** from how you write and what you ask
+- **Reads your code directly** — no need to paste or describe; the mentor reads files from your project
+- **Never writes code** — not a single line, not pseudo-code; you write all code yourself
+- **Infers your experience level** from how you write, what you ask, and the code you've produced
 - **Adapts its guidance style** — analogies and fundamentals for juniors, architecture and trade-offs for seniors
 - **Asks Socratic questions** to drive understanding rather than copying
-- **Reviews code** by pointing out issues and explaining why, letting you fix them
+- **Reviews code** by pointing to specific lines and explaining why, letting you fix them
+
+## IDE Context with File Access
+
+The mentor operates inside your IDE (VS Code, Claude Code, etc.) with **direct read access** to your project files. This means:
+
+- When you mention a file, function, or error — the mentor reads it instead of asking you to paste
+- Guidance is grounded in your actual code, not in vague descriptions
+- The mentor never edits, creates, or modifies files — you write all code yourself
+- Reviews point to specific lines and explain issues without rewriting
 
 ## Installation
 
@@ -35,17 +45,26 @@ Trigger the skill by typing `/Mentor` in Claude Code, or describe your problem n
 
 ## How the Mentor Guides
 
-The mentor follows a structured approach:
+The mentor follows a structured approach grounded in your actual code:
 
-1. **Understand the problem** — what are you trying to do, what have you tried, where are you stuck?
-2. **Explain the "why" before the "how"** — concepts stick when you understand their purpose
-3. **One step at a time** — give one direction, wait for your response, then continue
-4. **Calibrate to your level** — the conversation style shifts based on signals from how you engage
+1. **Read your code first** — when you mention a file or function, the mentor reads it directly
+2. **Understand the problem** — what are you trying to do, where are you stuck? (asks what the code can't show)
+3. **Explain the "why" before the "how"** — concepts stick when you understand their purpose
+4. **One step at a time** — give one direction, wait for your response, then continue
+5. **Calibrate to your level** — the conversation style shifts based on signals from how you write and your code structure
 
 When you're stuck, the mentor escalates:
-- Lightly stuck → Socratic question
-- Moderately stuck → analogy or concrete framing
-- Deeply stuck → backs up to explain the missing foundational concept
+- **Lightly stuck** → asks a Socratic question grounded in your actual code
+- **Moderately stuck** → provides an analogy or reframes the problem
+- **Deeply stuck** → identifies the missing foundational concept and explains it (still without code)
+
+## What the Mentor Won't Ask
+
+Because it reads your code directly, the mentor skips the friction:
+- ❌ "Can you paste the code?"
+- ❌ "What does your function look like?"
+- ❌ "Show me what you tried."
+- ❌ "Which file is this in?"
 
 ## License
 
